@@ -3,5 +3,4 @@
 # Палиндром — это слово или фраза, которые одинаково читаются слева направо и справа налево.
 
 s = input()
-is_palindrome = (s == reversed(s))
-print(is_palindrome)
+print(s == ''.join(reversed(s)))
