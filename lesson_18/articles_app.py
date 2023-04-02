@@ -52,7 +52,7 @@ def save_article(article: Article):
 def articles_view():
     articles = get_all_articles()
     articles_html = '\n'.join(
-        f'<li><a href="/article/{article.id}">{article.title}</li>'
+        f'<li><a href="/article/{article.id}">{article.title}</a></li>'
         for article in articles)
 
     return f'''
