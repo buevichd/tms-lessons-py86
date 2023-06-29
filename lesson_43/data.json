@@ -1,0 +1,36 @@
+{
+  "Do you like Django?": {
+    "Yes": 100,
+    "No": 5,
+    "Not sure": 15
+  },
+  "How are you?": {
+    "Fine": 14,
+    "Not bad": 17,
+    ":(": 1
+  },
+  "What version of Pythod do you use?": {
+    "2": 0,
+    "3": 8
+  },
+  "What is ORM?": {
+    "Object relational mapping": 123,
+    "Object rotation middleware": 17
+  },
+  "What's up bro?": {
+    "Cool": 15,
+    ":(": 2
+  },
+  "2 + 2 * 2": {
+    "6": 43,
+    "8": 3
+  },
+  "Do you like TeachMeSkills Python courses?": {
+    "Definitely yes!": 999999,
+    "Yes!": 803
+  },
+  "你为什么要翻译这个？ 做任务！": {
+    "美好的": 10,
+    "我已经做了一切": 0
+  }
+}
