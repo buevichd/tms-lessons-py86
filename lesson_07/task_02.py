@@ -20,7 +20,7 @@ print(f'2.4: {my_map(str, numbers)}')
 # 2.5
 def my_map_gen(func, iterable):
     for el in iterable:
-        yield el
+        yield func(el)
 
 
 print(f'2.5(wrong usage): {my_map_gen(str, numbers)}')

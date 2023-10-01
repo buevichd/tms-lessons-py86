@@ -1,3 +1,6 @@
+# В этом файле показаны реализации функции input_list тремя способами
+# Все варианты функции названы по разному просто для избежания коллизии имён
+
 # с помощью обычного цикла
 def input_list_with_simple_cycle() -> list[int]:
     input_strings = input().split()
@@ -20,5 +23,3 @@ def input_list_with_map() -> list[int]:
 print(input_list_with_simple_cycle())
 print(input_list_with_generator())
 print(input_list_with_map())
-
-
