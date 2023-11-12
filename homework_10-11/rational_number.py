@@ -2,42 +2,43 @@ import math
 
 
 class Rational:
-    def __init__(self, n, d):
-        self.__n = n
-        self.__d = d
+    def __init__(self, numerator, denominator):
+        self.__numerator = numerator
+        self.__denominator = denominator
         self.__normalise()
 
     @property
-    def n(self):
-        return self.__n
+    def numerator(self):
+        return self.__numerator
 
     @property
-    def d(self):
-        return self.__d
+    def denominator(self):
+        return self.__denominator
 
     def __str__(self):
-        return f'{self.n} / {self.d}'
+        return f'{self.numerator} / {self.denominator}'
 
     def __mul__(self, other: 'Rational') -> 'Rational':
-        return Rational(self.n * other.n, self.d * other.d)
+        return Rational(self.numerator * other.numerator, self.denominator * other.denominator)
 
     def __truediv__(self, other: 'Rational') -> 'Rational':
-        return self * Rational(other.d, other.n)
+        return self * Rational(other.denominator, other.numerator)
 
     def __add__(self, other: 'Rational') -> 'Rational':
-        return Rational(self.n * other.d + self.d * other.n, self.d * other.d)
+        return Rational(self.numerator * other.denominator + self.denominator * other.numerator,
+                        self.denominator * other.denominator)
 
     def __sub__(self, other: 'Rational') -> 'Rational':
-        return self + Rational(-other.n, other.d)
+        return self + Rational(-other.numerator, other.denominator)
 
     def __eq__(self, other: 'Rational') -> bool:
-        return self.n * other.d == other.n * self.d
+        return self.numerator * other.denominator == other.numerator * self.denominator
 
     def __ne__(self, other: 'Rational') -> bool:
         return not (self == other)
 
     def __lt__(self, other: 'Rational') -> bool:
-        return self.n / self.d < other.n / other.d
+        return self.numerator / self.denominator < other.numerator / other.denominator
 
     def __le__(self, other: 'Rational') -> bool:
         return self < other or self == other
@@ -46,22 +47,22 @@ class Rational:
         return other < self
 
     def __ge__(self, other: 'Rational') -> bool:
-        return self > other or self == other
+        return other <= self
 
     def __normalise(self):
-        gcd = math.gcd(self.n, self.d)
-        self.__n //= gcd
-        self.__d //= gcd
+        gcd = math.gcd(self.numerator, self.denominator)
+        self.__numerator //= gcd
+        self.__denominator //= gcd
 
-        if self.d < 0:
-            self.__d *= -1
-            self.__n *= -1
+        if self.denominator < 0:
+            self.__denominator *= -1
+            self.__numerator *= -1
 
 
 if __name__ == '__main__':
     r = Rational(1, 2)
-    assert r.n == 1
-    assert r.d == 2
+    assert r.numerator == 1
+    assert r.denominator == 2
     print(r)  # 1 / 2
     assert str(r) == '1 / 2'
     assert r * r == Rational(1, 4)
@@ -74,4 +75,3 @@ if __name__ == '__main__':
     assert str(Rational(2, 4)) == '1 / 2'
     l = Rational(1, 4) * (Rational(3, 2) + Rational(1, 8)) + Rational(156, 100)
     assert l == Rational(1573, 800)
-
